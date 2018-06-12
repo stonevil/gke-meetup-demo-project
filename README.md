@@ -111,8 +111,8 @@ gcloud container clusters get-credentials [CLUSTER_NAME]
 
 ```Shell
 gcloud container node-pools create preemtible-pool \
-	--cluster $CLUSTER_NAME \
-	--zone $CLUSTER_ZONE \
+	--cluster [CLUSTER_NAME] \
+	--zone [CLUSTER_ZONE] \
 	--scopes cloud-platform \
 	--enable-autoupgrade \
 	--preemptible \
@@ -128,7 +128,7 @@ Note: Nodes in preemptible pool will have `cloud.google.com/gke-preeptible: true
 
 ----------------------------------------------------------------------------------------------------
 
-## Cluster Scaling 
+## Cluster Scaling
 
 #### estafette-gke-preemptible-killer
 **GitHub: <https://github.com/estafette/estafette-gke-preemptible-killer>**
