@@ -1,0 +1,31 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    run: stress
+  name: stress
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: stress
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        run: stress
+    spec:
+      containers:
+      - args:
+        - --cpu
+        - "1"
+        image: progrium/stress
+        name: stress
+        resources:
+          requests:
+            cpu: 500m
