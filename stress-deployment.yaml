@@ -29,4 +29,3 @@ spec:
         resources:
           requests:
             cpu: 500m
-
