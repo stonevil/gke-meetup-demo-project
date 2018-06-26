@@ -1,0 +1,40 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    run: stress
+  name: stress
+  namespace: default
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      run: stress
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        run: stress
+    spec:
+      affinity:
+        nodeAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 100
+            preference:
+              matchExpressions:
+              - key: cloud.google.com/gke-preemptible
+                operator: Exists
+      containers:
+      - args:
+        - --cpu
+        - "1"
+        image: progrium/stress
+        name: stress
+        resources:
+          requests:
+            cpu: 500m
+
