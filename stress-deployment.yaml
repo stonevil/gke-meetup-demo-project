@@ -6,7 +6,7 @@ metadata:
   name: stress
   namespace: default
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       run: stress
@@ -29,3 +29,4 @@ spec:
         resources:
           requests:
             cpu: 500m
+

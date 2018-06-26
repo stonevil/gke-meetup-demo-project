@@ -6,15 +6,7 @@ metadata:
   name: stress
   namespace: default
 spec:
-  affinity:
-    nodeAffinity:
-      preferredDuringSchedulingIgnoredDuringExecution:
-      - preference:
-          matchExpressions:
-          - key: cloud.google.com/gke-preemptible
-            operator: Exists
-        weight: 100
-    replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       run: stress
@@ -28,6 +20,14 @@ spec:
       labels:
         run: stress
     spec:
+      affinity:
+        nodeAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 100
+            preference:
+              matchExpressions:
+              - key: cloud.google.com/gke-preemptible
+                operator: Exists
       containers:
       - args:
         - --cpu
@@ -37,3 +37,4 @@ spec:
         resources:
           requests:
             cpu: 500m
+
