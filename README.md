@@ -225,5 +225,5 @@ To avoid incurring charges to your Google Cloud Platform account for the resourc
 Delete your cluster by running gcloud container clusters delete:
 
 ```Shell
-gcloud container clusters delete 
+gcloud container clusters delete meetup-prebake
 ```
