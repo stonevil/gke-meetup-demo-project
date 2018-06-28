@@ -58,6 +58,15 @@ gcloud components update && gcloud components install kubectl
 	* Wait for the API and related services to be enabled. This can take several minutes.
 	* Make sure that billing is enabled for your project.
 
+
+#### Clone project to local folder
+
+To clone project repository run command:
+
+```Shell
+git clone https://github.com/stonevil/gke-meetup-demo-project.git gke-meetup-demo-project && cd gke-meetup-demo-project
+```
+
 <br />
 
 ----------------------------------------------------------------------------------------------------
