@@ -58,6 +58,7 @@ gcloud components update && gcloud components install kubectl
 	* Wait for the API and related services to be enabled. This can take several minutes.
 	* Make sure that billing is enabled for your project.
 
+
 * Increase quotas for CPUs and In-use IP addresses
 	* Go to the IAM & admin
 	* Select Quotas section
